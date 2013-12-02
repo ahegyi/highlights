@@ -1,0 +1,20 @@
+%h2 Create a new highlight!
+= form_for(@highlight) do |f|
+  - if @highlight.errors.any?
+    %div#error_explanation
+      %h2
+        = pluralize(@highlight.errors.count, "error")
+        prohibited this highlight from being saved:
+      %ul
+      - @highlight.errors.full_messages.each do |msg|
+        %li= msg
+  %p
+    = f.label :title
+    %br/
+    = f.text_field :title
+  %div
+    = f.label :description
+    %br/
+    = f.text_area :description
+
+  %div= f.submit "Save"

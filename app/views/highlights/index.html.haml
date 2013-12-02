@@ -1,0 +1,7 @@
+%h1 All Recently Created Highlights
+
+%div.highlights{style: "margin-bottom: 30px;"}
+  - @highlights.each do |highlight|
+    %h3= link_to highlight.title, highlight
+
+= link_to "Create New Highlight", new_highlight_path, class: "btn btn-primary"
