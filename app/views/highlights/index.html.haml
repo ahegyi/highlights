@@ -4,4 +4,10 @@
   - @highlights.each do |highlight|
     %h3= link_to highlight.title, highlight
 
-= link_to "Create New Highlight", new_highlight_path, class: "btn btn-primary"
+- if user_signed_in? && current_user
+  = link_to "Create New Highlight", new_highlight_path, class: "btn btn-primary"
+- else
+  Want to create a new highlight?
+  = link_to "Sign up now!", new_user_registration_path
+  or
+  = link_to "Sign in", new_user_session_path

@@ -8,5 +8,5 @@ Highlights::Application.routes.draw do
     root to: "highlights#index"
   end
 
-  root :to => "home#index"
+  root :to => "highlights#index"
 end
