@@ -1,0 +1,12 @@
+%h1= @user.name
+
+%div.highlights{style: "margin-bottom: 30px;"}
+  - if @user.highlights.present?
+    - @user.highlights.each do |highlight|
+      %h3= link_to highlight.title, highlight
+  - else
+    =@user.name
+    has not highlighted anything yet!
+
+- if user_signed_in? && current_user
+  = link_to "Create New Highlight", new_highlight_path, class: "btn btn-primary"
